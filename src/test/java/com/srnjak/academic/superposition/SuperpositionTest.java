@@ -11,7 +11,7 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
-import static com.srnjak.academic.superposition.Superposition.measure;
+import static com.srnjak.academic.superposition.Superposition.*;
 
 /**
  * A test class to simulate and test various superposition and state swapping
@@ -41,7 +41,8 @@ public class SuperpositionTest {
 //        var generator = new SequenceGenerator(new int[]{3, 0, 0, 2, 1, 3, 2, 1});
 //         var generator = new SequenceGenerator(new int[]{0, 1, 2, 3});
 //         var generator = new SequenceGenerator(new int[]{3, 0, 0, 2, 1, 3, 2, 1, 1, 1, 1});
-         var generator = new SequenceGenerator(1000);
+//         var generator = new SequenceGenerator(1000);
+         var generator = new SequenceGenerator(new int[]{0, 3});
 
          performSwapTest("advanced sequence", i -> {
              if (i == 0) {
@@ -130,23 +131,23 @@ public class SuperpositionTest {
         var filteredB1 = measure(tut.getParticles(), filterLeft, swapSelector);
         var filteredB2 = measure(filteredB1, passAll, swapSelector);
         var filteredB3 = measure(filteredB2, filterLeft, swapSelector);
-
-        System.out.println("*** Accept high and low separately");
-        var filteredC1 = measure(tut.getParticles(), filterLeft, swapSelector);
-        var filteredC2a = measure(filteredC1, filterHigh, swapSelector);
-        var filteredC2b = measure(filteredC1, filterLow, swapSelector);
-        var filteredC2 = new ArrayList<Particle>();
-        filteredC2.addAll(filteredC2a);
-        filteredC2.addAll(filteredC2b);
-        Collections.shuffle(filteredC2);
-        var filteredC3 = measure(filteredC2, filterLeft, swapSelector);
-
-        System.out.println("*** Position only (twice)");
-        var filteredD1 = measure(tut.getParticles(), filterLeft, swapSelector);
-        var filteredD2 = measure(filteredD1, filterLeft, swapSelector);
-
-        System.out.println("*** Momentum only");
-        var filteredE1 = measure(tut.getParticles(), filterHigh, swapSelector);
+//
+//        System.out.println("*** Accept high and low separately");
+//        var filteredC1 = measure(tut.getParticles(), filterLeft, swapSelector);
+//        var filteredC2a = measure(filteredC1, filterHigh, swapSelector);
+//        var filteredC2b = measure(filteredC1, filterLow, swapSelector);
+//        var filteredC2 = new ArrayList<Particle>();
+//        filteredC2.addAll(filteredC2a);
+//        filteredC2.addAll(filteredC2b);
+//        Collections.shuffle(filteredC2);
+//        var filteredC3 = measure(filteredC2, filterLeft, swapSelector);
+//
+//        System.out.println("*** Position only (twice)");
+//        var filteredD1 = measure(tut.getParticles(), filterLeft, swapSelector);
+//        var filteredD2 = measure(filteredD1, filterLeft, swapSelector);
+//
+//        System.out.println("*** Momentum only");
+//        var filteredE1 = measure(tut.getParticles(), filterHigh, swapSelector);
 
         System.out.println();
     }
