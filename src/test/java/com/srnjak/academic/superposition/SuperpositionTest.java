@@ -60,23 +60,23 @@ public class SuperpositionTest {
 
     @Test
     public void testSwapTwoAlways() {
-        performSwapTest("swap vertical", i -> Swap.values()[1]);
+        performSwapTest("swap momentum", i -> Swap.values()[1]);
     }
 
     @Test
     public void testSwapThreeAlways() {
-        performSwapTest("swap horizontal", i -> Swap.values()[2]);
+        performSwapTest("swap position", i -> Swap.values()[2]);
     }
 
     @Test
     public void testSwapFourAlways() {
-        performSwapTest("swap horizontal and vertical", i -> Swap.values()[3]);
+        performSwapTest("swap position and momentum", i -> Swap.values()[3]);
     }
 
     @Test
     public void testFirstHalfSwapOneSecondHalfSwapTwo() {
         performSwapTest(
-                "first half no swap, second half swap vertical",
+                "first half no swap, second half swap momentum",
                 i -> i < Superposition.SIZE / 2 ?
                         Swap.values()[0] : Swap.values()[1]);
     }
